@@ -115,7 +115,7 @@ def nogo(name, visibility = None, **kwargs):
     native.alias(
         name = name,
         actual = select({
-            "@io_bazel_rules_go//go/private:nogo_active": actual_name,
+            Label("//go/private:nogo_active"): actual_name,
             "//conditions:default": Label("//:default_nogo"),
         }),
         visibility = visibility,
